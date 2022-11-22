@@ -1,0 +1,37 @@
+.Banner {
+  &__contentWrapper {
+    width: 100%;
+
+    p {
+      // font-weight: 700;
+      // text-align: center;
+      // font-size: 40px;
+      font-family: Hack, sans-serif;
+      background: linear-gradient(90deg, #000, #fff, #000);
+      letter-spacing: 5px;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-repeat: no-repeat;
+      background-size: 80%;
+
+      @mixin animate($animation, $duration, $method, $times) {
+        animation: $animation $duration $method $times;
+      }
+      @mixin keyframes($name) {
+        @keyframes #{$name} {
+          @content;
+        }
+      }
+      @include keyframes(shine) {
+        0% {
+          background-position-x: -500%;
+        }
+        100% {
+          background-position-x: 500%;
+        }
+      }
+      @include animate(shine, 12s, linear, infinite);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.Product {
+  width: 85%;
+  margin: 0 auto;
+  padding: 35px 20px;
+  &__gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  &__pagination {
+    width: 85%;
+    margin: 25px auto;
+
+    ul {
+      display: block;
+      margin: 0 auto;
+      width: fit-content;
+    }
+  }
+}
+
+@media (max-width: 439px) {
+  .Product {
+    width: 100%;
+    padding: 10px;
+    &__pagination {
+      width: 100%;
+    }
+  }
+}
