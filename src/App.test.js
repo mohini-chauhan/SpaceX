@@ -1,8 +1,16 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render } from "@testing-library/react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./jest.setup";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+// it("Renders the landing page", () => {
+//   const { getAllByRole } = render(<App />);
+//   expect(getAllByRole("img")).toBeInTheDocument();
+// });
+
+describe("Dummy", () => {
+  it("Should be true", () => {
+    const test = true;
+    expect(test).toBe(true);
+  });
 });

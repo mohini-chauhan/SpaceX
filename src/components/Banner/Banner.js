@@ -11,7 +11,7 @@ const Banner = () => (
       </p>
     </div>
     <figure>
-      <img src={earth} alt="astronaut" className="w-full max-h-96 bg-cover" />
+      <img src={earth} alt="earth" className="w-full max-h-96 bg-cover" />
     </figure>
   </div>
 );

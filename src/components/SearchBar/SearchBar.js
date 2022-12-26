@@ -54,7 +54,7 @@ const SearchBar = () => {
   }, [data, isLoading]);
 
   return (
-    <section className={styles.SearchBar}>
+    <section className={styles.SearchBar} data-testid="collapse">
       <Collapse>
         <Panel header="Filters">
           <form className="block w-full m-auto sm:flex sm:justify-between sm:w-full px-4">
@@ -85,7 +85,7 @@ const SearchBar = () => {
                 style={{
                   width: "100%",
                 }}
-                placeholder="Select status"
+                placeholder="Select type"
                 onChange={(value) => setTypeSelect(value)}
                 options={typeOption}
               />

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Product.module.scss";
-import product from "../assest/product.jpg";
+import productImg from "../assest/product.jpg";
 import SearchBar from "../SearchBar/SearchBar";
 import { useAPI } from "../../context/CapsuleProvider";
 import { Modal, Pagination } from "antd";
@@ -52,14 +52,18 @@ const Product = () => {
         filterData.length === 0 ? (
           <p className="text-center">No results found</p>
         ) : (
-          <section className={styles.Product__gridContainer}>
+          <section
+            className={styles.Product__gridContainer}
+            data-testid="products"
+          >
             {filterData?.slice(minValue, maxValue).map((item, index) => (
               <figure key={index}>
                 <img
-                  src={product}
+                  src={productImg}
                   onClick={() => info(item)}
                   alt="icon"
                   className="m-auto "
+                  data-testid="modal-open"
                 />
                 <section className="text-center">
                   <p>Serial Number:{item?.capsule_serial}</p>
