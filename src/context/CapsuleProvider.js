@@ -30,7 +30,7 @@ function CapsuleProvider({ children }) {
 
 export default CapsuleProvider;
 
-// Create a hook to use the APIContext, this is a Kent C. Dodds pattern
+// Create a hook to use the APIContext
 export function useAPI() {
   const context = useContext(APIContext);
   if (context === undefined) {

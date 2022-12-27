@@ -7,7 +7,7 @@ import "./jest.setup";
 //   const { getAllByRole } = render(<App />);
 //   expect(getAllByRole("img")).toBeInTheDocument();
 // });
-
+//it is a dummy test
 describe("Dummy", () => {
   it("Should be true", () => {
     const test = true;
