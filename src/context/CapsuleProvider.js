@@ -25,7 +25,7 @@ function CapsuleProvider({ children }) {
     launchDate: null,
   });
   const [isLoading, setIsLoading] = useState(true);
-  const [isFirstTime, setFirstTime] = useState(true);
+  const [isFirstTime, setFirstTime] = useState(false);
 
   // Fetch data
   useEffect(() => {
@@ -34,9 +34,12 @@ function CapsuleProvider({ children }) {
       .then(function (response) {
         setData(response.data);
         setIsLoading(false);
-        setFirstTime(false);
+        setFirstTime(true);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setIsLoading(false);
+        setData([]);
+      });
   }, [filter]);
 
   return (

@@ -28,7 +28,7 @@ const SearchBar = () => {
 
   useEffect(() => {
     // get options for filter
-    if (!isFirstTime) {
+    if (isFirstTime) {
       let tempstatus = [];
       let temptype = [];
       let tempmisson = [];
