@@ -8,7 +8,7 @@ import "antd/dist/antd.min.css";
 
 const Product = () => {
   // Grab data from useAPI in global context
-  const { isLoading, filterData } = useAPI();
+  const { isLoading, data } = useAPI();
 
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(9);
@@ -49,14 +49,14 @@ const Product = () => {
     <section className={styles.Product}>
       <SearchBar />
       {!isLoading ? (
-        filterData.length === 0 ? (
+        data.length === 0 ? (
           <p className="text-center">No results found</p>
         ) : (
           <section
             className={styles.Product__gridContainer}
             data-testid="products"
           >
-            {filterData?.slice(minValue, maxValue).map((item, index) => (
+            {data?.slice(minValue, maxValue).map((item, index) => (
               <figure key={index}>
                 <img
                   src={productImg}
@@ -81,7 +81,7 @@ const Product = () => {
           defaultCurrent={1}
           defaultPageSize={dataPerPage} //default size of page
           onChange={handleChange}
-          total={filterData?.length} //total number of card data available
+          total={data?.length} //total number of card data available
         />
       </section>
     </section>

@@ -24,7 +24,7 @@ describe("<SearhBar/>", () => {
     await userEvent.click(getByText(/Filters/i));
     expect(await findByText(/Select Status/i)).toBeInTheDocument();
     expect(await findByText(/Select type/i)).toBeInTheDocument();
-    expect(await findByText(/Launch Date/i)).toBeInTheDocument();
+    expect(await findByText(/Select mission/i)).toBeInTheDocument();
     expect(
       await getByRole("button", { name: "Apply Filter" })
     ).toBeInTheDocument();

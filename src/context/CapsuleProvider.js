@@ -3,26 +3,52 @@ import getCapsuleData from "../api/api";
 
 const APIContext = createContext();
 
+const makeQuery = (params) => {
+  let query = "?";
+  Object.keys(params).forEach((key) => {
+    if (params[key]) {
+      query =
+        query === "?"
+          ? query.concat(key, "=", params[key])
+          : query.concat("&", key, "=", params[key]);
+    }
+  });
+  return query.length > 1 ? query : "";
+};
+
 function CapsuleProvider({ children }) {
   // Initialize state
   const [data, setData] = useState([]);
-  const [filterData, setFilterData] = useState([]);
+  const [filter, setFilter] = useState({
+    status: null,
+    type: null,
+    launchDate: null,
+  });
   const [isLoading, setIsLoading] = useState(true);
+  const [isFirstTime, setFirstTime] = useState(true);
 
   // Fetch data
   useEffect(() => {
-    getCapsuleData()
+    setIsLoading(true);
+    getCapsuleData(makeQuery(filter))
       .then(function (response) {
         setData(response.data);
-        setFilterData(response.data);
         setIsLoading(false);
-        console.log(response);
+        setFirstTime(false);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [filter]);
 
   return (
-    <APIContext.Provider value={{ data, isLoading, filterData, setFilterData }}>
+    <APIContext.Provider
+      value={{
+        data,
+        isLoading,
+        isFirstTime,
+        filter,
+        setFilter,
+      }}
+    >
       {children}
     </APIContext.Provider>
   );
